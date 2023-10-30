@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header text-capitalize">
+      <h3 class="card-title">User Update Form</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="userFormData">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name" />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email" />
+        </div>
+        <div class="mb-3">
+          <label for="contact" class="form-label">Contact</label>
+          <input type="text" class="form-control" id="contact" formControlName="contact" />
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <textarea class="form-control" id="address" formControlName="address"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="userUpdate()">Update</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="modal-box" [ngStyle]="{'opacity':modalHide?'0':'100'}">
+    <span>Data updated successfully!</span>
+  </div>
+  

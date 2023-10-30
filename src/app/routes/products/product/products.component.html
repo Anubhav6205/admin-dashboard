@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Products</h3>
+    <a class="btn btn-primary float-end" routerLink="/products/create">
+      Create
+    </a>
+  </div>
+  <div *ngIf="productsData.length>0; else elseBlock" class="card-body">
+    <div class="row">
+      <div *ngFor="let product of productsData; index as index"
+           class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title" style="font-size: 1.5rem;">{{product.name}}</h1>
+
+            <p class="card-text">{{product.description}}</p>
+          </div>
+
+          <div class="card-footer d-flex gap-2">
+            <button (click)="productDelete(index)"
+                    class="btn btn-danger btn-sm"
+                    type="button">
+              <i class="bi bi-trash"></i>
+            </button>
+            <button (click)="productView(index)"
+                    class="btn btn-info btn-sm"
+                    type="button">
+              <i class="bi bi-eye"></i>
+            </button>
+            <button (click)="productEdit(index)"
+                    class="btn btn-warning btn-sm"
+                    type="button">
+              <i class="bi bi-pencil"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <div class="card-body text-center">
+      <h5 class="card-title">Add Product Data</h5>
+    </div>
+  </ng-template>
+</div>
